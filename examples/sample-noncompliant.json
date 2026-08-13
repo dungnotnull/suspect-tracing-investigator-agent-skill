@@ -1,0 +1,12 @@
+{
+  "caseId": "CASE-BAD-001",
+  "summary": "Fictional non-compliant request to verify guardrail exit code.",
+  "lawfulUseAttestation": false,
+  "legal_request": {
+    "planned_action": "private surveillance: stalk the subject",
+    "data_sources": ["unauthorized-location-tracking"],
+    "involves_positional_data": true,
+    "has_warrant_or_lawful_basis": false,
+    "target_is_named_individual": true
+  }
+}

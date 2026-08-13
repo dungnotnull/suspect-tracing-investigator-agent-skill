@@ -1,0 +1,68 @@
+[
+  {
+    "id": "L1",
+    "description": "Witness statement: subject seen near 4th & Main convenience store on the night of offense S2.",
+    "source": "lawfully-obtained-witness-statements",
+    "source_reliability": "Medium",
+    "proximity": 0.85,
+    "temporal_recency": 0.90,
+    "corroborating_items": 2,
+    "actionability": 0.80,
+    "captured_at": "2026-04-18T09:15:00"
+  },
+  {
+    "id": "L2",
+    "description": "Public court record: subject has a prior burglary conviction in 2021 in the same district.",
+    "source": "court-records",
+    "source_reliability": "High",
+    "proximity": 0.70,
+    "temporal_recency": 0.40,
+    "corroborating_items": 1,
+    "actionability": 0.60,
+    "captured_at": "2026-04-17T11:00:00"
+  },
+  {
+    "id": "L3",
+    "description": "Open-source public social-media post (publicly viewable): photo at a gym 3 km from offense cluster, timestamped between S2 and S3.",
+    "source": "open-source-intelligence-public",
+    "source_reliability": "Medium",
+    "proximity": 0.55,
+    "temporal_recency": 0.75,
+    "corroborating_items": 1,
+    "actionability": 0.45,
+    "captured_at": "2026-04-19T18:30:00"
+  },
+  {
+    "id": "L4",
+    "description": "Department record (authorized query): subject's known associate A2 shares a residential lease near the estimated anchor.",
+    "source": "department-records-with-authorization",
+    "source_reliability": "High",
+    "proximity": 0.90,
+    "temporal_recency": 0.65,
+    "corroborating_items": 3,
+    "actionability": 0.85,
+    "captured_at": "2026-04-20T08:00:00"
+  },
+  {
+    "id": "L5",
+    "description": "Public record: vehicle registration for a blue sedan matches the witness description in L1.",
+    "source": "public-records",
+    "source_reliability": "High",
+    "proximity": 0.60,
+    "temporal_recency": 0.50,
+    "corroborating_items": 1,
+    "actionability": 0.70,
+    "captured_at": "2026-04-20T10:30:00"
+  },
+  {
+    "id": "L6",
+    "description": "Unsourced tip from anonymous caller; no corroboration; low reliability.",
+    "source": "lawfully-obtained-witness-statements",
+    "source_reliability": "Low",
+    "proximity": 0.30,
+    "temporal_recency": 0.20,
+    "corroborating_items": 0,
+    "actionability": 0.15,
+    "captured_at": "2026-04-21T22:10:00"
+  }
+]

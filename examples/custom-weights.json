@@ -1,0 +1,7 @@
+{
+  "proximity": 0.25,
+  "temporal_recency": 0.15,
+  "source_reliability": 0.30,
+  "corroborative_strength": 0.20,
+  "actionability": 0.10
+}

@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "validate_chain_of_custody output",
+  "description": "Continuity validation result with errors and warnings"
+}

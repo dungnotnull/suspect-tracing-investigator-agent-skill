@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "sites": {
+      "type": "array",
+      "description": "Known offense sites"
+    },
+    "routine": {
+      "type": "object",
+      "description": "Suspect anchor and routine activity nodes with guardian strength"
+    }
+  },
+  "required": [
+    "sites",
+    "routine"
+  ],
+  "title": "routine_activity_analysis input",
+  "description": "Apply Routine Activity Theory (Cohen & Felson, 1979) to identify space/time convergence points where a motivated offender, suitable target, and absence of a capable guardian are likely to coincide."
+}

@@ -1,0 +1,35 @@
+{
+  "name": "suspect-tracing-investigator",
+  "version": "1.0.0",
+  "description": "Professional-support skill for lawful suspect tracing & fugitive investigation: lead prioritization, geographic profiling, routine-activity analysis, link analysis, cognitive-interview planning, and legal/ethical guardrails.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "ts-node tests/run.ts",
+    "validate": "ts-node scripts/validate.ts",
+    "lead-scorer": "ts-node scripts/lead-scorer.ts",
+    "geo-profiler": "ts-node scripts/geo-profiler.ts",
+    "network-analyzer": "ts-node scripts/network-analyzer.ts",
+    "investigate": "ts-node scripts/investigate.ts",
+    "export-schemas": "ts-node scripts/export-schemas.ts"
+  },
+  "keywords": [
+    "investigation",
+    "forensic",
+    "geographic-profiling",
+    "link-analysis",
+    "cognitive-interview",
+    "skill",
+    "agent"
+  ],
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.0.0",
+    "ajv": "^8.0.0",
+    "ajv-formats": "^3.0.0"
+  }
+}

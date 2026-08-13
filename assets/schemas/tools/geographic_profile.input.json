@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "sites": {
+      "type": "array",
+      "description": "Offense sites with lat/lon"
+    },
+    "options": {
+      "type": "object",
+      "description": "Optional buffer/decay/grid overrides"
+    }
+  },
+  "required": [
+    "sites"
+  ],
+  "title": "geographic_profile input",
+  "description": "Generate a conceptual Rossmo-style geographic profiling probability surface from known offense sites and return ranked candidate anchor cells plus a weighted anchor estimate. Uses a configurable buffer zone and inverse-distance decay."
+}

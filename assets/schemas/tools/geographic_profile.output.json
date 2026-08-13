@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "geographic_profile output",
+  "description": "Geographic profile surface with top cells and estimated anchor"
+}

@@ -1,0 +1,966 @@
+{
+  "confidence": "High",
+  "disclaimer": "This output is general, educational/analytical information produced to support lawful professional investigation. It is not legal advice, not a professional determination, and not a judgment about any named individual. Always verify with a qualified professional (legal advisor, sworn investigator, forensic analyst) before acting on any lead.",
+  "legal_scope_note": "All data used must be lawfully and authoritatively obtained. Positional/location data requires a warrant or explicit lawful basis. Do not extend this skill into private surveillance or vigilante action. Where a named individual is referenced, conclusions remain at the level of structured reasoning support, not definitive judgment.",
+  "router_trace": [
+    {
+      "decision": "Inspect triggers across the skill registry.",
+      "step": 1,
+      "thought": "Classify request intent from text: \"Fictional case bundle used to validate the full skill pipeline. All data fabricated.\"."
+    },
+    {
+      "decision": "Fall back to lead_orchestrator as the default intake skill.",
+      "step": 2,
+      "thought": "Registry trigger match produced candidates: none."
+    },
+    {
+      "decision": "Dispatch in cascade strategy.",
+      "step": 3,
+      "thought": "Final selection: lead_orchestrator, geo_profiler, network_analyst, legal_guardrail."
+    }
+  ],
+  "selected_agents": [
+    "lead_orchestrator",
+    "geo_profiler",
+    "network_analyst",
+    "legal_guardrail"
+  ],
+  "sub_agent_results": [
+    {
+      "agent": "lead_orchestrator",
+      "data": {
+        "model": "weighted-mcda-v1",
+        "ranked_leads": [
+          {
+            "component_scores": {
+              "actionability": 0.85,
+              "corroborative_strength": 0.8647,
+              "proximity": 0.9,
+              "source_reliability": 1,
+              "temporal_recency": 0.65
+            },
+            "description": "Authorized dept. record: associate A2 shares lease near estimated anchor.",
+            "lead_id": "L4",
+            "normalized_score": 1,
+            "priority_band": "P1-High",
+            "rank": 1,
+            "rationale": "source reliability High (1); strong suspect-anchor proximity; 3 corroborating item(s); immediately actionable.",
+            "source": "department-records-with-authorization",
+            "source_reliability": "High",
+            "weighted_score": 0.8604
+          },
+          {
+            "component_scores": {
+              "actionability": 0.8,
+              "corroborative_strength": 0.7364,
+              "proximity": 0.85,
+              "source_reliability": 0.6,
+              "temporal_recency": 0.9
+            },
+            "description": "Witness: subject seen near 4th & Main on night of S2.",
+            "lead_id": "L1",
+            "normalized_score": 0,
+            "priority_band": "P4-Background",
+            "rank": 2,
+            "rationale": "source reliability Medium (0.6); strong suspect-anchor proximity; temporally recent; 2 corroborating item(s); immediately actionable.",
+            "source": "lawfully-obtained-witness-statements",
+            "source_reliability": "Medium",
+            "weighted_score": 0.7673
+          }
+        ]
+      },
+      "notes": [],
+      "success": true,
+      "toolUsed": "score_leads"
+    },
+    {
+      "agent": "geo_profiler",
+      "data": {
+        "cells": [
+          {
+            "lat": 34.05352,
+            "lon": -118.24158,
+            "normalizedScore": 1,
+            "priorityBand": "P1-High",
+            "rawScore": 2.762246
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.247,
+            "normalizedScore": 0.9753,
+            "priorityBand": "P1-High",
+            "rawScore": 2.694044
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.24158,
+            "normalizedScore": 0.9675,
+            "priorityBand": "P1-High",
+            "rawScore": 2.672412
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.247,
+            "normalizedScore": 0.8497,
+            "priorityBand": "P1-High",
+            "rawScore": 2.347181
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.23616,
+            "normalizedScore": 0.7587,
+            "priorityBand": "P1-High",
+            "rawScore": 2.095849
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.24158,
+            "normalizedScore": 0.7332,
+            "priorityBand": "P2-Medium",
+            "rawScore": 2.025245
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.23616,
+            "normalizedScore": 0.6747,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.863698
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.247,
+            "normalizedScore": 0.6475,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.788629
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.25242,
+            "normalizedScore": 0.6406,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.769625
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.247,
+            "normalizedScore": 0.6385,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.763583
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.23616,
+            "normalizedScore": 0.5712,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.577892
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.24158,
+            "normalizedScore": 0.5455,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.506712
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.25242,
+            "normalizedScore": 0.5403,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.492385
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.23074,
+            "normalizedScore": 0.5199,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.435991
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.23616,
+            "normalizedScore": 0.5032,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.389923
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.24158,
+            "normalizedScore": 0.4606,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.272202
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.23074,
+            "normalizedScore": 0.4554,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.25781
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.22532,
+            "normalizedScore": 0.4424,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.221905
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.23074,
+            "normalizedScore": 0.4335,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.19751
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.25784,
+            "normalizedScore": 0.4315,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.191965
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.24158,
+            "normalizedScore": 0.4288,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.184486
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.24158,
+            "normalizedScore": 0.4282,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.182753
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.22532,
+            "normalizedScore": 0.4251,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.174306
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.25242,
+            "normalizedScore": 0.4222,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.166146
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.26326,
+            "normalizedScore": 0.4169,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.151593
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.247,
+            "normalizedScore": 0.4107,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.134337
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.25784,
+            "normalizedScore": 0.4059,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.121239
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.247,
+            "normalizedScore": 0.4029,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.112854
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.247,
+            "normalizedScore": 0.4006,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.106429
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.25242,
+            "normalizedScore": 0.3999,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.104493
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.25784,
+            "normalizedScore": 0.3967,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.095788
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.24158,
+            "normalizedScore": 0.3962,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.094279
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.23074,
+            "normalizedScore": 0.3888,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.073833
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.23616,
+            "normalizedScore": 0.386,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.066258
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.26326,
+            "normalizedScore": 0.3855,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.064839
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.22532,
+            "normalizedScore": 0.3696,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.020831
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.23616,
+            "normalizedScore": 0.369,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.019357
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.25242,
+            "normalizedScore": 0.3656,
+            "priorityBand": "P3-Low",
+            "rawScore": 1.00988
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.247,
+            "normalizedScore": 0.3572,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.986691
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.26326,
+            "normalizedScore": 0.3516,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.971274
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.23616,
+            "normalizedScore": 0.351,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.96965
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.25242,
+            "normalizedScore": 0.3492,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.964442
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.25242,
+            "normalizedScore": 0.3478,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.960709
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.21989,
+            "normalizedScore": 0.3412,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.942368
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.22532,
+            "normalizedScore": 0.3297,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.91068
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.23074,
+            "normalizedScore": 0.3291,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.908964
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.23616,
+            "normalizedScore": 0.3264,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.901703
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.21989,
+            "normalizedScore": 0.3255,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.898982
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.24158,
+            "normalizedScore": 0.325,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.897742
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.25784,
+            "normalizedScore": 0.324,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.895081
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.23074,
+            "normalizedScore": 0.3207,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.885868
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.21989,
+            "normalizedScore": 0.3198,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.883345
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.25784,
+            "normalizedScore": 0.3197,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.88297
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.23074,
+            "normalizedScore": 0.3123,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.862591
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.247,
+            "normalizedScore": 0.3103,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.857013
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.25784,
+            "normalizedScore": 0.3088,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.853106
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.26326,
+            "normalizedScore": 0.3085,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.852017
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.23616,
+            "normalizedScore": 0.3074,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.849172
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.22532,
+            "normalizedScore": 0.298,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.82318
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.21989,
+            "normalizedScore": 0.2832,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.782173
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.26326,
+            "normalizedScore": 0.2751,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.759891
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.25784,
+            "normalizedScore": 0.2738,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.756345
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.26326,
+            "normalizedScore": 0.2719,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.75109
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.25242,
+            "normalizedScore": 0.2719,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.751148
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.21989,
+            "normalizedScore": 0.2706,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.747498
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.23074,
+            "normalizedScore": 0.2642,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.729666
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.26868,
+            "normalizedScore": 0.264,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.729118
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.24158,
+            "normalizedScore": 0.2617,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.722791
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.26868,
+            "normalizedScore": 0.2584,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.713653
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.22532,
+            "normalizedScore": 0.258,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.712707
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.25784,
+            "normalizedScore": 0.2561,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.707529
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.247,
+            "normalizedScore": 0.2554,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.705525
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.25242,
+            "normalizedScore": 0.2505,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.691941
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.23074,
+            "normalizedScore": 0.2502,
+            "priorityBand": "P3-Low",
+            "rawScore": 0.691188
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.26868,
+            "normalizedScore": 0.2458,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.678973
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.23616,
+            "normalizedScore": 0.2452,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.677421
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.22532,
+            "normalizedScore": 0.2406,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.664461
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.26326,
+            "normalizedScore": 0.2361,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.652075
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.26868,
+            "normalizedScore": 0.232,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.640972
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.21989,
+            "normalizedScore": 0.2316,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.639667
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.22532,
+            "normalizedScore": 0.2302,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.635876
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.25242,
+            "normalizedScore": 0.2297,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.634576
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.25784,
+            "normalizedScore": 0.2245,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.620253
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.21989,
+            "normalizedScore": 0.2153,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.594634
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.23074,
+            "normalizedScore": 0.2135,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.589765
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.22532,
+            "normalizedScore": 0.2131,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.588758
+          },
+          {
+            "lat": 34.06257,
+            "lon": -118.26868,
+            "normalizedScore": 0.2125,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.586852
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.26326,
+            "normalizedScore": 0.2096,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.578984
+          },
+          {
+            "lat": 34.03996,
+            "lon": -118.26868,
+            "normalizedScore": 0.1961,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.541752
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.25784,
+            "normalizedScore": 0.1949,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.538234
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.21989,
+            "normalizedScore": 0.1836,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.507063
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.26326,
+            "normalizedScore": 0.1796,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.496125
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.22532,
+            "normalizedScore": 0.1775,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.490227
+          },
+          {
+            "lat": 34.06709,
+            "lon": -118.26868,
+            "normalizedScore": 0.1756,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.484984
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.21989,
+            "normalizedScore": 0.1677,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.463117
+          },
+          {
+            "lat": 34.03543,
+            "lon": -118.26868,
+            "normalizedScore": 0.1604,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.442978
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.26326,
+            "normalizedScore": 0.1599,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.441692
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.21989,
+            "normalizedScore": 0.1444,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.398835
+          },
+          {
+            "lat": 34.07161,
+            "lon": -118.26868,
+            "normalizedScore": 0.1423,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.393054
+          },
+          {
+            "lat": 34.03091,
+            "lon": -118.26868,
+            "normalizedScore": 0.1295,
+            "priorityBand": "P4-Background",
+            "rawScore": 0.357792
+          }
+        ],
+        "envelope": {
+          "maxLat": 34.07409,
+          "maxLon": -118.21632,
+          "minLat": 34.03091,
+          "minLon": -118.26868
+        },
+        "estimatedAnchor": {
+          "lat": 34.05178,
+          "lon": -118.24361
+        },
+        "parameters": {
+          "bufferZoneKm": 1.5,
+          "decayConstantKm": 4,
+          "gridCellKm": 0.5
+        },
+        "topCells": [
+          {
+            "lat": 34.05352,
+            "lon": -118.24158,
+            "normalizedScore": 1,
+            "priorityBand": "P1-High",
+            "rawScore": 2.762246
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.247,
+            "normalizedScore": 0.9753,
+            "priorityBand": "P1-High",
+            "rawScore": 2.694044
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.24158,
+            "normalizedScore": 0.9675,
+            "priorityBand": "P1-High",
+            "rawScore": 2.672412
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.247,
+            "normalizedScore": 0.8497,
+            "priorityBand": "P1-High",
+            "rawScore": 2.347181
+          },
+          {
+            "lat": 34.05352,
+            "lon": -118.23616,
+            "normalizedScore": 0.7587,
+            "priorityBand": "P1-High",
+            "rawScore": 2.095849
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.24158,
+            "normalizedScore": 0.7332,
+            "priorityBand": "P2-Medium",
+            "rawScore": 2.025245
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.23616,
+            "normalizedScore": 0.6747,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.863698
+          },
+          {
+            "lat": 34.05804,
+            "lon": -118.247,
+            "normalizedScore": 0.6475,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.788629
+          },
+          {
+            "lat": 34.049,
+            "lon": -118.25242,
+            "normalizedScore": 0.6406,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.769625
+          },
+          {
+            "lat": 34.04448,
+            "lon": -118.247,
+            "normalizedScore": 0.6385,
+            "priorityBand": "P2-Medium",
+            "rawScore": 1.763583
+          }
+        ]
+      },
+      "notes": [],
+      "success": true,
+      "toolUsed": "geographic_profile"
+    },
+    {
+      "agent": "network_analyst",
+      "data": {
+        "cutVertices": [
+          "A4",
+          "A2"
+        ],
+        "edgeCount": 7,
+        "interpretation": "Identified 2 cut-vertex node(s) whose removal fragments the network — high-value targets for disruption or intelligence development.",
+        "nodeCount": 6,
+        "nodes": [
+          {
+            "betweenness": 5,
+            "degree": 4,
+            "id": "A2",
+            "influenceScore": 0.98,
+            "isCutVertex": true,
+            "name": "Associate-2",
+            "role": "financial",
+            "weightedDegree": 3.1
+          },
+          {
+            "betweenness": 4,
+            "degree": 3,
+            "id": "A4",
+            "influenceScore": 0.7465,
+            "isCutVertex": true,
+            "name": "Associate-4",
+            "role": "coworker",
+            "weightedDegree": 1.65
+          },
+          {
+            "betweenness": 1,
+            "degree": 3,
+            "id": "A3",
+            "influenceScore": 0.4187,
+            "isCutVertex": false,
+            "name": "Associate-3",
+            "role": "criminal-associate",
+            "weightedDegree": 2.15
+          },
+          {
+            "betweenness": 0,
+            "degree": 2,
+            "id": "A1",
+            "influenceScore": 0.2465,
+            "isCutVertex": false,
+            "name": "Delta",
+            "role": "subject",
+            "weightedDegree": 1.65
+          },
+          {
+            "betweenness": 0,
+            "degree": 1,
+            "id": "A5",
+            "influenceScore": 0.1248,
+            "isCutVertex": false,
+            "name": "Associate-5",
+            "role": "family",
+            "weightedDegree": 0.85
+          },
+          {
+            "betweenness": 0,
+            "degree": 1,
+            "id": "A6",
+            "influenceScore": 0.0958,
+            "isCutVertex": false,
+            "name": "Associate-6",
+            "role": "social",
+            "weightedDegree": 0.4
+          }
+        ]
+      },
+      "notes": [],
+      "success": true,
+      "toolUsed": "link_analysis"
+    },
+    {
+      "agent": "legal_guardrail",
+      "data": {
+        "errors": [],
+        "itemsVerified": 1,
+        "summary": "All 1 custody item(s) passed continuity verification.",
+        "valid": true,
+        "warnings": []
+      },
+      "notes": [],
+      "success": true,
+      "toolUsed": "validate_chain_of_custody"
+    }
+  ],
+  "synthesis": "## Investigation Support Synthesis\n- **Lead Prioritization (weighted MCDA)**: ranked 2 leads; top priority band P1-High.\n- **Geographic Profiling**: produced 100 candidate cells; estimated anchor {\"lat\":34.05178,\"lon\":-118.24361}.\n- **Link Analysis**: 6 nodes, 7 edges, 2 cut-vertex node(s).\n- **Legal/Guardrail Check**: chain valid=true; 0 error(s), 0 warning(s).\n\nOutputs above are structured analytical support only. See disclaimer and legal-scope note.",
+  "warnings": []
+}

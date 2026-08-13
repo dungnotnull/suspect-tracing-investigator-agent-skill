@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "score_leads output",
+  "description": "Ranked, scored lead list with priority bands"
+}

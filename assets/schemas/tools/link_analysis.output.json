@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "link_analysis output",
+  "description": "Ranked node centralities, cut-vertices, and interpretation"
+}

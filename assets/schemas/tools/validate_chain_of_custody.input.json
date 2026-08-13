@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "description": "Custody items with transfer chains"
+    }
+  },
+  "required": [
+    "items"
+  ],
+  "title": "validate_chain_of_custody input",
+  "description": "Verify chain-of-custody continuity for evidence items — each transfer step must chain from the prior custodian to the next, with timestamps and collector identity preserved."
+}

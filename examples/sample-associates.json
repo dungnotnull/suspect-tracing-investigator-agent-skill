@@ -1,0 +1,9 @@
+[
+  { "id": "A1", "name": "Delta",      "role": "subject",            "links": ["A2", "A3"],         "strength": 0.9 },
+  { "id": "A2", "name": "Associate-2","role": "financial",          "links": ["A1", "A3", "A4", "A5"], "strength": 0.8 },
+  { "id": "A3", "name": "Associate-3","role": "criminal-associate", "links": ["A1", "A2", "A4"],   "strength": 0.7 },
+  { "id": "A4", "name": "Associate-4","role": "coworker",           "links": ["A2", "A3", "A6"],   "strength": 0.5 },
+  { "id": "A5", "name": "Associate-5","role": "family",             "links": ["A2"],               "strength": 0.9 },
+  { "id": "A6", "name": "Associate-6","role": "social",             "links": ["A4"],               "strength": 0.3 },
+  { "id": "A7", "name": "Associate-7","role": "social",             "links": ["A3"],               "strength": 0.2 }
+]

@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "request": {
+      "type": "object",
+      "description": "Planned action with data sources and lawful-basis flags"
+    }
+  },
+  "required": [
+    "request"
+  ],
+  "title": "check_legal_scope input",
+  "description": "Validate a planned investigative action against lawful-scope guardrails: disallowed data sources, private-surveillance prohibition, warrant requirement for positional data, and no-definitive-judgment rule for named individuals."
+}

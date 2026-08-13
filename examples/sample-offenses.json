@@ -1,0 +1,7 @@
+[
+  { "id": "S1", "label": "4th & Main convenience store", "lat": 34.0510, "lon": -118.2450, "timestamp": "2026-03-05T01:20:00", "weight": 1.0 },
+  { "id": "S2", "label": "Warehouse district unit 12",    "lat": 34.0490, "lon": -118.2410, "timestamp": "2026-03-19T02:05:00", "weight": 1.0 },
+  { "id": "S3", "label": "Eastside electronics retailer", "lat": 34.0560, "lon": -118.2380, "timestamp": "2026-04-02T01:45:00", "weight": 1.0 },
+  { "id": "S4", "label": "Central ave pharmacy",          "lat": 34.0535, "lon": -118.2470, "timestamp": "2026-04-15T02:30:00", "weight": 1.0 },
+  { "id": "S5", "label": "North loop auto parts",         "lat": 34.0605, "lon": -118.2440, "timestamp": "2026-04-16T03:10:00", "weight": 1.0 }
+]

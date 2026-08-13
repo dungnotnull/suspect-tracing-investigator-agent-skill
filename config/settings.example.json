@@ -1,0 +1,108 @@
+{
+  "$schema": "./schema.json",
+  "version": "1.0.0",
+  "system": {
+    "name": "suspect-tracing-investigator",
+    "environment": "development",
+    "log_level": "info",
+    "debug_mode": false,
+    "session_id_prefix": "STI"
+  },
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-opus-4-7",
+    "temperature": 0.4,
+    "max_tokens": 4096,
+    "timeout_ms": 120000,
+    "retry": {
+      "max_attempts": 3,
+      "backoff_ms": 1000,
+      "exponential_base": 2
+    },
+    "fallback": {
+      "enabled": true,
+      "model": "claude-sonnet-4",
+      "graceful_degradation_message": "Primary model unavailable; returning a reduced-confidence structured analysis with documented limitations. Consult a qualified investigator and re-run when full model access is restored."
+    }
+  },
+  "features": {
+    "enable_lead_prioritization": true,
+    "enable_geographic_profiling": true,
+    "enable_routine_activity_analysis": true,
+    "enable_link_analysis": true,
+    "enable_cognitive_interview": true,
+    "enable_digital_footprint_guidance": true,
+    "enable_legal_guardrails": true,
+    "enable_chain_of_custody": true
+  },
+  "router": {
+    "strategy": "cascade",
+    "max_sub_agents_per_request": 4,
+    "cot_trace_visible": true,
+    "confidence_threshold": 0.55
+  },
+  "scoring": {
+    "lead_criteria_weights": {
+      "proximity": 0.20,
+      "temporal_recency": 0.20,
+      "source_reliability": 0.25,
+      "corroborative_strength": 0.20,
+      "actionability": 0.15
+    },
+    "geo": {
+      "buffer_zone_km": 1.5,
+      "decay_constant_km": 4.0,
+      "grid_cell_km": 0.5,
+      "distance_mode": "haversine",
+      "osrm_base_url": ""
+    },
+    "normalization": "minmax"
+  },
+  "validation": {
+    "strict_mode": true,
+    "require_professional_disclaimer": true,
+    "require_legal_clearance_attestation": true,
+    "max_leads": 500,
+    "max_offense_sites": 200,
+    "max_associates": 300,
+    "max_interview_questions": 40
+  },
+  "output": {
+    "format": "structured",
+    "include_metadata": true,
+    "include_confidence_scores": true,
+    "include_chain_of_thought": true,
+    "timestamp_format": "ISO8601"
+  },
+  "interview": {
+    "default_model": "cognitive"
+  },
+  "guardrails": {
+    "enforce_disclaimer": true,
+    "enforce_legal_scope": true,
+    "prohibit_private_surveillance": true,
+    "prohibit_individual_definitive_judgment": true,
+    "require_warrant_warning_on_positional_data": true,
+    "allowed_data_sources": [
+      "public-records",
+      "court-records",
+      "lawfully-obtained-witness-statements",
+      "open-source-intelligence-public",
+      "department-records-with-authorization"
+    ],
+    "disallowed_data_sources": [
+      "unauthorized-location-tracking",
+      "stolen-data",
+      "private-surveillance-without-lawful-basis",
+      "social-media-via-credential-sharing"
+    ]
+  },
+  "security": {
+    "sanitize_inputs": true,
+    "max_input_length": 50000,
+    "rate_limiting": {
+      "enabled": true,
+      "max_requests_per_minute": 60
+    }
+  }
+}

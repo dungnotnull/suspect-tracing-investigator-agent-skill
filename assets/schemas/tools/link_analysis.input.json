@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "associates": {
+      "type": "array",
+      "description": "Associate nodes with links and tie strength"
+    }
+  },
+  "required": [
+    "associates"
+  ],
+  "title": "link_analysis input",
+  "description": "Compute associate-network centrality (degree, weighted degree, Brandes betweenness), identify cut-vertices (articulation points), and rank nodes by composite investigative influence."
+}

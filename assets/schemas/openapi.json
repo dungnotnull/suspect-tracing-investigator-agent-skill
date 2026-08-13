@@ -1,0 +1,604 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Suspect Tracing & Fugitive Investigation Support — Tool API",
+    "version": "1.0.0",
+    "description": "OpenAPI description of every tool exposed by the suspect-tracing-investigator skill. Each tool has a JSON-Schema-validated input and a typed output. See SKILL_REGISTRY.md for the agent-orchestration contract.",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "paths": {
+    "/tools/score_leads": {
+      "post": {
+        "operationId": "score_leads",
+        "summary": "Apply a weighted MCDA (multi-criteria decision analysis) lead-prioritization model to rank investigative leads by proximity, temporal recency, source reliability, corroborative strength, and actionability. Returns normalized scores and priority bands P1..P4.",
+        "tags": [
+          "analysis"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/score_leads_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/score_leads_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/geographic_profile": {
+      "post": {
+        "operationId": "geographic_profile",
+        "summary": "Generate a conceptual Rossmo-style geographic profiling probability surface from known offense sites and return ranked candidate anchor cells plus a weighted anchor estimate. Uses a configurable buffer zone and inverse-distance decay.",
+        "tags": [
+          "analysis"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/geographic_profile_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/geographic_profile_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/routine_activity_analysis": {
+      "post": {
+        "operationId": "routine_activity_analysis",
+        "summary": "Apply Routine Activity Theory (Cohen & Felson, 1979) to identify space/time convergence points where a motivated offender, suitable target, and absence of a capable guardian are likely to coincide.",
+        "tags": [
+          "analysis"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/routine_activity_analysis_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/routine_activity_analysis_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/link_analysis": {
+      "post": {
+        "operationId": "link_analysis",
+        "summary": "Compute associate-network centrality (degree, weighted degree, Brandes betweenness), identify cut-vertices (articulation points), and rank nodes by composite investigative influence.",
+        "tags": [
+          "analysis"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/link_analysis_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/link_analysis_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/generate_interview_questions": {
+      "post": {
+        "operationId": "generate_interview_questions",
+        "summary": "Generate a structured cognitive-interview question set (Fisher & Geiselman, 1992) covering rapport, open narrative, context reinstatement, varied recall, changed perspective, focused follow-up, and closing.",
+        "tags": [
+          "output"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/generate_interview_questions_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/generate_interview_questions_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/check_legal_scope": {
+      "post": {
+        "operationId": "check_legal_scope",
+        "summary": "Validate a planned investigative action against lawful-scope guardrails: disallowed data sources, private-surveillance prohibition, warrant requirement for positional data, and no-definitive-judgment rule for named individuals.",
+        "tags": [
+          "validation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/check_legal_scope_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/check_legal_scope_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tools/validate_chain_of_custody": {
+      "post": {
+        "operationId": "validate_chain_of_custody",
+        "summary": "Verify chain-of-custody continuity for evidence items — each transfer step must chain from the prior custodian to the next, with timestamps and collector identity preserved.",
+        "tags": [
+          "validation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/validate_chain_of_custody_input"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tool result envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/validate_chain_of_custody_output"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "executionTimeMs": {
+                          "type": "number"
+                        },
+                        "timestamp": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "score_leads_input": {
+        "type": "object",
+        "properties": {
+          "leads": {
+            "type": "array",
+            "description": "Lead items to score"
+          },
+          "weights": {
+            "type": "object",
+            "description": "Optional override weights (will be normalized)"
+          }
+        },
+        "required": [
+          "leads"
+        ],
+        "title": "score_leads input",
+        "description": "Apply a weighted MCDA (multi-criteria decision analysis) lead-prioritization model to rank investigative leads by proximity, temporal recency, source reliability, corroborative strength, and actionability. Returns normalized scores and priority bands P1..P4."
+      },
+      "score_leads_output": {
+        "type": "object",
+        "title": "score_leads output",
+        "description": "Ranked, scored lead list with priority bands"
+      },
+      "geographic_profile_input": {
+        "type": "object",
+        "properties": {
+          "sites": {
+            "type": "array",
+            "description": "Offense sites with lat/lon"
+          },
+          "options": {
+            "type": "object",
+            "description": "Optional buffer/decay/grid overrides"
+          }
+        },
+        "required": [
+          "sites"
+        ],
+        "title": "geographic_profile input",
+        "description": "Generate a conceptual Rossmo-style geographic profiling probability surface from known offense sites and return ranked candidate anchor cells plus a weighted anchor estimate. Uses a configurable buffer zone and inverse-distance decay."
+      },
+      "geographic_profile_output": {
+        "type": "object",
+        "title": "geographic_profile output",
+        "description": "Geographic profile surface with top cells and estimated anchor"
+      },
+      "routine_activity_analysis_input": {
+        "type": "object",
+        "properties": {
+          "sites": {
+            "type": "array",
+            "description": "Known offense sites"
+          },
+          "routine": {
+            "type": "object",
+            "description": "Suspect anchor and routine activity nodes with guardian strength"
+          }
+        },
+        "required": [
+          "sites",
+          "routine"
+        ],
+        "title": "routine_activity_analysis input",
+        "description": "Apply Routine Activity Theory (Cohen & Felson, 1979) to identify space/time convergence points where a motivated offender, suitable target, and absence of a capable guardian are likely to coincide."
+      },
+      "routine_activity_analysis_output": {
+        "type": "object",
+        "title": "routine_activity_analysis output",
+        "description": "Ranked convergence/risk zones with interpretation"
+      },
+      "link_analysis_input": {
+        "type": "object",
+        "properties": {
+          "associates": {
+            "type": "array",
+            "description": "Associate nodes with links and tie strength"
+          }
+        },
+        "required": [
+          "associates"
+        ],
+        "title": "link_analysis input",
+        "description": "Compute associate-network centrality (degree, weighted degree, Brandes betweenness), identify cut-vertices (articulation points), and rank nodes by composite investigative influence."
+      },
+      "link_analysis_output": {
+        "type": "object",
+        "title": "link_analysis output",
+        "description": "Ranked node centralities, cut-vertices, and interpretation"
+      },
+      "generate_interview_questions_input": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "type": "object",
+            "description": "Interview context (role, event, known facts)"
+          }
+        },
+        "required": [
+          "context"
+        ],
+        "title": "generate_interview_questions input",
+        "description": "Generate a structured cognitive-interview question set (Fisher & Geiselman, 1992) covering rapport, open narrative, context reinstatement, varied recall, changed perspective, focused follow-up, and closing."
+      },
+      "generate_interview_questions_output": {
+        "type": "object",
+        "title": "generate_interview_questions output",
+        "description": "Cognitive interview plan with phased questions and reliability notes"
+      },
+      "check_legal_scope_input": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "type": "object",
+            "description": "Planned action with data sources and lawful-basis flags"
+          }
+        },
+        "required": [
+          "request"
+        ],
+        "title": "check_legal_scope input",
+        "description": "Validate a planned investigative action against lawful-scope guardrails: disallowed data sources, private-surveillance prohibition, warrant requirement for positional data, and no-definitive-judgment rule for named individuals."
+      },
+      "check_legal_scope_output": {
+        "type": "object",
+        "title": "check_legal_scope output",
+        "description": "Compliance verdict with violations, warnings, and required action"
+      },
+      "validate_chain_of_custody_input": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Custody items with transfer chains"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "validate_chain_of_custody input",
+        "description": "Verify chain-of-custody continuity for evidence items — each transfer step must chain from the prior custodian to the next, with timestamps and collector identity preserved."
+      },
+      "validate_chain_of_custody_output": {
+        "type": "object",
+        "title": "validate_chain_of_custody output",
+        "description": "Continuity validation result with errors and warnings"
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Suspect Tracing & Fugitive Investigation Support Configuration Schema",
+  "type": "object",
+  "required": ["version", "system", "llm", "features", "guardrails"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Configuration version following semantic versioning"
+    },
+    "system": {
+      "type": "object",
+      "required": ["name", "environment"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "environment": { "type": "string", "enum": ["development", "staging", "production"] },
+        "log_level": { "type": "string", "enum": ["debug", "info", "warn", "error"] },
+        "debug_mode": { "type": "boolean" },
+        "session_id_prefix": { "type": "string", "minLength": 1 }
+      }
+    },
+    "llm": {
+      "type": "object",
+      "required": ["provider", "model"],
+      "properties": {
+        "provider": { "type": "string", "enum": ["anthropic", "openai", "custom"] },
+        "model": { "type": "string", "minLength": 1 },
+        "temperature": { "type": "number", "minimum": 0, "maximum": 2 },
+        "max_tokens": { "type": "integer", "minimum": 1, "maximum": 100000 },
+        "timeout_ms": { "type": "integer", "minimum": 1000 },
+        "retry": {
+          "type": "object",
+          "properties": {
+            "max_attempts": { "type": "integer", "minimum": 1, "maximum": 10 },
+            "backoff_ms": { "type": "integer", "minimum": 100 },
+            "exponential_base": { "type": "number", "minimum": 1 }
+          }
+        },
+        "fallback": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "model": { "type": "string" },
+            "graceful_degradation_message": { "type": "string" }
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "enable_lead_prioritization": { "type": "boolean" },
+        "enable_geographic_profiling": { "type": "boolean" },
+        "enable_routine_activity_analysis": { "type": "boolean" },
+        "enable_link_analysis": { "type": "boolean" },
+        "enable_cognitive_interview": { "type": "boolean" },
+        "enable_digital_footprint_guidance": { "type": "boolean" },
+        "enable_legal_guardrails": { "type": "boolean" },
+        "enable_chain_of_custody": { "type": "boolean" }
+      }
+    },
+    "router": {
+      "type": "object",
+      "description": "Chain-of-thought router settings for sub-agent dispatch",
+      "properties": {
+        "strategy": { "type": "string", "enum": ["single", "parallel", "cascade"] },
+        "max_sub_agents_per_request": { "type": "integer", "minimum": 1, "maximum": 8 },
+        "cot_trace_visible": { "type": "boolean" },
+        "confidence_threshold": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "description": "Weights for the lead-prioritization MCDA model",
+      "properties": {
+        "lead_criteria_weights": {
+          "type": "object",
+          "properties": {
+            "proximity": { "type": "number", "minimum": 0, "maximum": 1 },
+            "temporal_recency": { "type": "number", "minimum": 0, "maximum": 1 },
+            "source_reliability": { "type": "number", "minimum": 0, "maximum": 1 },
+            "corroborative_strength": { "type": "number", "minimum": 0, "maximum": 1 },
+            "actionability": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "geo": {
+          "type": "object",
+          "properties": {
+            "buffer_zone_km": { "type": "number", "minimum": 0 },
+            "decay_constant_km": { "type": "number", "minimum": 0 },
+            "grid_cell_km": { "type": "number", "minimum": 0.01 },
+            "distance_mode": { "type": "string", "enum": ["haversine", "osrm"] },
+            "osrm_base_url": { "type": "string" }
+          }
+        },
+        "normalization": { "type": "string", "enum": ["minmax", "zscore", "rank"] }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "strict_mode": { "type": "boolean" },
+        "require_professional_disclaimer": { "type": "boolean" },
+        "require_legal_clearance_attestation": { "type": "boolean" },
+        "max_leads": { "type": "integer", "minimum": 1 },
+        "max_offense_sites": { "type": "integer", "minimum": 1 },
+        "max_associates": { "type": "integer", "minimum": 1 },
+        "max_interview_questions": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "format": { "type": "string", "enum": ["structured", "narrative", "both"] },
+        "include_metadata": { "type": "boolean" },
+        "include_confidence_scores": { "type": "boolean" },
+        "include_chain_of_thought": { "type": "boolean" },
+        "timestamp_format": { "type": "string", "enum": ["ISO8601", "Unix", "RFC2822"] }
+      }
+    },
+    "interview": {
+      "type": "object",
+      "properties": {
+        "default_model": { "type": "string", "enum": ["cognitive", "peace"] }
+      },
+      "required": ["default_model"]
+    },
+    "guardrails": {
+      "type": "object",
+      "required": ["enforce_disclaimer", "enforce_legal_scope"],
+      "properties": {
+        "enforce_disclaimer": { "type": "boolean" },
+        "enforce_legal_scope": { "type": "boolean" },
+        "prohibit_private_surveillance": { "type": "boolean" },
+        "prohibit_individual_definitive_judgment": { "type": "boolean" },
+        "require_warrant_warning_on_positional_data": { "type": "boolean" },
+        "allowed_data_sources": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "disallowed_data_sources": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "sanitize_inputs": { "type": "boolean" },
+        "max_input_length": { "type": "integer", "minimum": 1 },
+        "rate_limiting": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "max_requests_per_minute": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

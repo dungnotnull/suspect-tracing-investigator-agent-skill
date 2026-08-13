@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "check_legal_scope output",
+  "description": "Compliance verdict with violations, warnings, and required action"
+}

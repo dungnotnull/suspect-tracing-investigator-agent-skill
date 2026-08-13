@@ -1,0 +1,40 @@
+{
+  "caseId": "CASE-2026-0417",
+  "caseType": "fugitive tracing — serial commercial burglary suspect",
+  "dateOpened": "2026-04-17",
+  "status": "Active",
+  "summary": "Fictional case bundle used to validate the full skill pipeline. All data fabricated.",
+  "lawfulUseAttestation": true,
+  "leads": [
+    { "id": "L1", "description": "Witness: subject seen near 4th & Main on night of S2.", "source": "lawfully-obtained-witness-statements", "source_reliability": "Medium", "proximity": 0.85, "temporal_recency": 0.90, "corroborating_items": 2, "actionability": 0.80, "captured_at": "2026-04-18T09:15:00" },
+    { "id": "L4", "description": "Authorized dept. record: associate A2 shares lease near estimated anchor.", "source": "department-records-with-authorization", "source_reliability": "High", "proximity": 0.90, "temporal_recency": 0.65, "corroborating_items": 3, "actionability": 0.85, "captured_at": "2026-04-20T08:00:00" }
+  ],
+  "sites": [
+    { "id": "S1", "label": "4th & Main convenience store", "lat": 34.0510, "lon": -118.2450, "timestamp": "2026-03-05T01:20:00", "weight": 1.0 },
+    { "id": "S2", "label": "Warehouse district unit 12",    "lat": 34.0490, "lon": -118.2410, "timestamp": "2026-03-19T02:05:00", "weight": 1.0 },
+    { "id": "S3", "label": "Eastside electronics retailer", "lat": 34.0560, "lon": -118.2380, "timestamp": "2026-04-02T01:45:00", "weight": 1.0 },
+    { "id": "S4", "label": "Central ave pharmacy",          "lat": 34.0535, "lon": -118.2470, "timestamp": "2026-04-15T02:30:00", "weight": 1.0 }
+  ],
+  "associates": [
+    { "id": "A1", "name": "Delta",       "role": "subject",            "links": ["A2", "A3"],              "strength": 0.9 },
+    { "id": "A2", "name": "Associate-2", "role": "financial",          "links": ["A1", "A3", "A4", "A5"],  "strength": 0.8 },
+    { "id": "A3", "name": "Associate-3", "role": "criminal-associate", "links": ["A1", "A2", "A4"],        "strength": 0.7 },
+    { "id": "A4", "name": "Associate-4", "role": "coworker",           "links": ["A2", "A3", "A6"],        "strength": 0.5 },
+    { "id": "A5", "name": "Associate-5", "role": "family",             "links": ["A2"],                    "strength": 0.9 },
+    { "id": "A6", "name": "Associate-6", "role": "social",             "links": ["A4"],                    "strength": 0.3 }
+  ],
+  "custody_items": [
+    {
+      "id": "E1",
+      "description": "Pry-mark cast from S2 entry point.",
+      "collector": "INV-1042",
+      "acquired_at": "2026-03-19T03:30:00",
+      "storage_location": "evidence-locker-B12",
+      "chain": [
+        { "from": "INV-1042", "to": "LAB-7",    "timestamp": "2026-03-19T09:00:00", "note": "toolmark analysis" },
+        { "from": "LAB-7",    "to": "INV-1042", "timestamp": "2026-03-22T14:00:00", "note": "returned" },
+        { "from": "INV-1042", "to": "EVID-B12", "timestamp": "2026-03-22T16:30:00", "note": "logged" }
+      ]
+    }
+  ]
+}

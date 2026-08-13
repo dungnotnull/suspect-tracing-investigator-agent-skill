@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "description": "Interview context (role, event, known facts)"
+    }
+  },
+  "required": [
+    "context"
+  ],
+  "title": "generate_interview_questions input",
+  "description": "Generate a structured cognitive-interview question set (Fisher & Geiselman, 1992) covering rapport, open narrative, context reinstatement, varied recall, changed perspective, focused follow-up, and closing."
+}

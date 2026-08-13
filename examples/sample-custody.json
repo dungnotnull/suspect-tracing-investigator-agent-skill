@@ -1,0 +1,34 @@
+[
+  {
+    "id": "E1",
+    "description": "Pry-mark cast from S2 rear-door entry point.",
+    "collector": "INV-1042",
+    "acquired_at": "2026-03-19T03:30:00",
+    "storage_location": "evidence-locker-B12",
+    "chain": [
+      { "from": "INV-1042", "to": "LAB-7",    "timestamp": "2026-03-19T09:00:00", "note": "transferred for toolmark analysis; sha256:9f2a..." },
+      { "from": "LAB-7",    "to": "INV-1042", "timestamp": "2026-03-22T14:00:00", "note": "returned after analysis" },
+      { "from": "INV-1042", "to": "EVID-B12", "timestamp": "2026-03-22T16:30:00", "note": "logged to locker" }
+    ]
+  },
+  {
+    "id": "E2",
+    "description": "Public OSINT screenshot archived from subject's public profile.",
+    "collector": "ANAL-33",
+    "acquired_at": "2026-04-19T18:35:00",
+    "chain": [
+      { "from": "ANAL-33", "to": "EVID-DIG-01", "timestamp": "2026-04-19T18:40:00", "note": "sha256:1c7e...; URL archived" }
+    ]
+  },
+  {
+    "id": "E3",
+    "description": "Witness interview recording (L1 source).",
+    "collector": "INV-1042",
+    "acquired_at": "2026-04-18T10:00:00",
+    "storage_location": "evidence-digital-vault",
+    "chain": [
+      { "from": "INV-1042",       "to": "TRANS-VAULT", "timestamp": "2026-04-18T11:00:00", "note": "uploaded to vault" },
+      { "from": "TRANS-VAULT",    "to": "EVID-DV-77",  "timestamp": "2026-04-18T11:10:00", "note": "hash recorded" }
+    ]
+  }
+]

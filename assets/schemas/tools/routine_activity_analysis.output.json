@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "routine_activity_analysis output",
+  "description": "Ranked convergence/risk zones with interpretation"
+}

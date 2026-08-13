@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "title": "generate_interview_questions output",
+  "description": "Cognitive interview plan with phased questions and reliability notes"
+}

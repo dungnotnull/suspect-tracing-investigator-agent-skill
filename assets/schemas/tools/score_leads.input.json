@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "leads": {
+      "type": "array",
+      "description": "Lead items to score"
+    },
+    "weights": {
+      "type": "object",
+      "description": "Optional override weights (will be normalized)"
+    }
+  },
+  "required": [
+    "leads"
+  ],
+  "title": "score_leads input",
+  "description": "Apply a weighted MCDA (multi-criteria decision analysis) lead-prioritization model to rank investigative leads by proximity, temporal recency, source reliability, corroborative strength, and actionability. Returns normalized scores and priority bands P1..P4."
+}

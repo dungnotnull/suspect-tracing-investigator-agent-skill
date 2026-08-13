@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Case Bundle",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string"
+    },
+    "caseType": {
+      "type": "string"
+    },
+    "dateOpened": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "lawfulUseAttestation": {
+      "type": "boolean"
+    },
+    "leads": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/LeadInput"
+      }
+    },
+    "sites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/OffenseSiteInput"
+      }
+    },
+    "associates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AssociateInput"
+      }
+    },
+    "routine": {
+      "type": "object"
+    },
+    "interview_context": {
+      "type": "object"
+    },
+    "legal_request": {
+      "type": "object"
+    },
+    "custody_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CustodyItem"
+      }
+    }
+  },
+  "required": [
+    "caseId"
+  ],
+  "definitions": {
+    "LeadInput": {
+      "type": "object",
+      "required": [
+        "id",
+        "description",
+        "source",
+        "source_reliability",
+        "proximity",
+        "temporal_recency",
+        "corroborating_items",
+        "actionability"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_reliability": {
+          "type": "string",
+          "enum": [
+            "High",
+            "Medium",
+            "Low"
+          ]
+        },
+        "proximity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "temporal_recency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "corroborating_items": {
+          "type": "number",
+          "minimum": 0
+        },
+        "actionability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "captured_at": {
+          "type": "string"
+        }
+      }
+    },
+    "OffenseSiteInput": {
+      "type": "object",
+      "required": [
+        "id",
+        "lat",
+        "lon"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number"
+        }
+      }
+    },
+    "AssociateInput": {
+      "type": "object",
+      "required": [
+        "id",
+        "links"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "CustodyItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "collector",
+        "acquired_at",
+        "chain"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "collector": {
+          "type": "string"
+        },
+        "acquired_at": {
+          "type": "string"
+        },
+        "storage_location": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "timestamp"
+            ],
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

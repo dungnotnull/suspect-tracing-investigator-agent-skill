@@ -1,0 +1,10 @@
+{
+  "anchor": { "lat": 34.0523, "lon": -118.2430 },
+  "nodes": [
+    { "id": "N1", "label": "suspect gym (OSINT)",            "lat": 34.0495, "lon": -118.2400, "guardianStrength": 0.15 },
+    { "id": "N2", "label": "known associate A2 residence",   "lat": 34.0540, "lon": -118.2460, "guardianStrength": 0.40 },
+    { "id": "N3", "label": "warehouse district (S2 area)",   "lat": 34.0490, "lon": -118.2410, "guardianStrength": 0.10 },
+    { "id": "N4", "label": "suspect workplace (authorized)", "lat": 34.0580, "lon": -118.2390, "guardianStrength": 0.70 },
+    { "id": "N5", "label": "transit hub - central ave",      "lat": 34.0535, "lon": -118.2470, "guardianStrength": 0.30 }
+  ]
+}

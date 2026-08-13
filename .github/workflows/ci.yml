@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Type-check (tsc --noEmit)
+        run: yarn typecheck
+
+      - name: Unit + snapshot tests
+        run: yarn test
+
+      - name: Validate example data
+        run: |
+          npx ts-node scripts/validate.ts examples/sample-case.json --quiet
+          npx ts-node scripts/validate.ts examples/sample-leads.json --quiet
+          npx ts-node scripts/validate.ts examples/sample-offenses.json --quiet
+          npx ts-node scripts/validate.ts examples/sample-associates.json --quiet
+          npx ts-node scripts/validate.ts examples/sample-custody.json --quiet
+
+      - name: Run analytical CLIs (smoke)
+        run: |
+          npx ts-node scripts/lead-scorer.ts examples/sample-leads.json > /dev/null
+          npx ts-node scripts/geo-profiler.ts examples/sample-offenses.json > /dev/null
+          npx ts-node scripts/geo-profiler.ts examples/sample-offenses.json --routine examples/sample-routine.json > /dev/null
+          npx ts-node scripts/network-analyzer.ts examples/sample-associates.json > /dev/null
+
+      - name: Full pipeline (investigate) — compliant case
+        run: |
+          npx ts-node scripts/investigate.ts examples/sample-case.json --json > investigate-out.json
+          node -e "const r=require('./investigate-out.json'); if(r.warnings.length) throw new Error('unexpected warnings'); console.log('compliant pipeline OK:', r.confidence)"
+
+      - name: Full pipeline (investigate) — guardrail non-compliance exits 2
+        run: |
+          set +e
+          npx ts-node scripts/investigate.ts examples/sample-noncompliant.json --json > /dev/null 2>&1
+          code=$?
+          if [ "$code" -ne 2 ]; then echo "expected exit 2 on non-compliance, got $code"; exit 1; fi
+          echo "guardrail exit code OK"
+
+      - name: Export OpenAPI / JSON-Schema artifacts
+        run: npx ts-node scripts/export-schemas.ts
